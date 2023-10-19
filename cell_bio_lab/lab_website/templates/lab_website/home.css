@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    width: 90%;
+    margin: auto;
+}
+
+body {
+    background-color: beige;
+}
+
+#header {
+    background-color: lightgrey;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    background-color: lightcoral;
+    width: 25%;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+#links {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+a {
+    padding: 5px;
+}
+
