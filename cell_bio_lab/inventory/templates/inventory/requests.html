@@ -1,0 +1,12 @@
+{% extends "inventory/index.html" %}
+
+{% block content %} 
+<h1> Helloooo </h1>
+
+<form method="post">
+    {% csrf_token %} 
+    {{ requestForm }}
+    <button type="submit">Request</button>
+</form>
+
+{% endblock %}

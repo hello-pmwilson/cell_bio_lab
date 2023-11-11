@@ -1,12 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="home.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'lab_website/home.css' %}">
     <title>Home</title>
 </head>
 <body>
+<div class="wrapper">
     <div id="header">
         <div id="logo">Ethan's Lab @ Clemson</div>
         <div id="links">
@@ -20,7 +22,9 @@
     <div id="content">
         <div id="information"></div>
         <div id="news"></div>
-    </div>
 
+    </div>
+    <div class="tab"></div>
+</div>
 </body>
 </html>
