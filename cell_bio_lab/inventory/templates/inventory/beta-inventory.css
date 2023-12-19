@@ -1,0 +1,30 @@
+body {
+    background-color: blanchedalmond;
+    display: flex;
+}
+
+.tab {
+    display: flex;
+}
+
+.middle {
+    height: 35px;
+    width:150px;
+    background-color: pink;
+    border-radius: 15px 15px 0 0;
+    position: absolute;
+    left:19.7px;
+}
+
+.edge {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-bottom: 30px solid pink;
+    position: relative;
+    transform: translateY(5px);
+}
+
+#right-tab-edge {
+    transform: scaleX(-1) translateY(5px) translateX(-143px); 
+}
