@@ -1,3 +1,7 @@
+/* TO DO 
+add variables to make it so the tabs can be different colors
+add the rest of the file, words */
+
 body {
     background-color: blanchedalmond;
     display: flex;
@@ -12,8 +16,8 @@ body {
     width:150px;
     background-color: pink;
     border-radius: 15px 15px 0 0;
-    position: absolute;
-    left:19.7px;
+    position: relative;
+    left: -3.4px;
 }
 
 .edge {
@@ -26,5 +30,5 @@ body {
 }
 
 #right-tab-edge {
-    transform: scaleX(-1) translateY(5px) translateX(-143px); 
+    transform: scaleX(-1) translateY(5px)  translateX(7px); 
 }
