@@ -4,7 +4,11 @@ add the rest of the file, words */
 
 body {
     background-color: blanchedalmond;
+}
+
+.tabs {
     display: flex;
+    margin-left: 10px;
 }
 
 .tab {
@@ -31,4 +35,33 @@ body {
 
 #right-tab-edge {
     transform: scaleX(-1) translateY(5px)  translateX(7px); 
+}
+
+
+.file {
+    background-color: pink;
+    width: 98vw;
+    height: 500px;
+    margin-top: 0;
+    padding: 20px;
+}
+
+table {
+    width: 95%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: ghostwhite;
+}
+
+tr:nth-child(even) {
+    background-color: ghostwhite;
 }
