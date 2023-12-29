@@ -1,14 +1,26 @@
 {% extends "inventory/index.html" %}
 
 {% block content %} 
-<h1> Inventory </h1>
-<div id="tabs">
-    <a id="Inventory">Inventory</a>
-    <a href="{% url 'requests' %}" id="requestView">Requests</a>
-    <a id="addItem">Add Item</a>
-</div>
 
-
+<h1>Inventory</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Amount</th>
+            <th></th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in data %}
+            <tr>
+                <td>{{ item.item }}</td>
+                <td>{{ item.amount }}</td>
+                <td>{{ item.unit }}</td>
+                <td>{{ item.location_name }}</td>
+            </tr>
+        {% endfor %}
     
 
 {% endblock %}

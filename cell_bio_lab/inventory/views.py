@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import onRequestForm 
 from .forms import inventoryAddForm
+from .models import inventory
 
 # Create your views here.
 def index(request):
@@ -22,6 +23,7 @@ def inventoryAdd(request):
     context['addInventoryForm']= form
     return render(request, 'inventory/add_inventory.html', context)
 
-def inventory(request):
-    return render(request, 'inventory/inventory.html')
+def inventoryView(request):
+    data = inventory.objects.all()
+    return render(request, 'inventory/inventory.html', {'data': data})
   
