@@ -3,26 +3,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="{% static 'inventory/inventory.js' %}"></script> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Inventory</title>
 </head>
 <body>
-    <div id="wrapper">
-    <div id="header">
-        <div id="tabs">
-            <a id="Inventory">Inventory</a>
-            <a href="{% url 'requests' %}" id="requestView">Requests</a>
-            <a id="addItem">Add Item</a>
-        </div>
-
-   {% block content %} 
-   <h1> default content </h1>
-   {% endblock %} 
-   
+<div id="wrapper">
+<div id="header">
+    <div id="tabs">
+        <a id="Inventory">Inventory</a>
+        <a href="{% url 'requests' %}" id="requestView">Requests</a>
+        <a id="addItem">Add Item</a>
     </div>
-
+<div id="content">
+{% block content %} 
+<h1> default content </h1>
+{% endblock %}        
+</div>
 
 </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'inventory/js/inventory.js' %}"></script>
 </body>
 </html>
