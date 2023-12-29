@@ -65,3 +65,10 @@ th {
 tr:nth-child(even) {
     background-color: ghostwhite;
 }
+
+.tab-path {
+    background-color: grey;
+    height: 75px;
+    width: 200px;
+    clip-path: path('m 0 90 q 10 0 20 -10 l 30 -40 q 10 -10 30 -10 h 70 q 20 0 30 10 l 30 40 q 10 10 20 10');
+}
