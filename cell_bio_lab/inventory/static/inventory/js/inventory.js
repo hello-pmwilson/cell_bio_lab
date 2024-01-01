@@ -1,18 +1,27 @@
-document.getElementById('requestView').addEventListener('click', function(e){
-    e.preventDefault();
-    let url = e.target.href;
-    console.log(url);
+$(document).ready(function() {
+    console.log('iteration 1');
+    $("#inventory").click(function(e) {
+        e.preventDefault();
+        let url = e.target.href;
 
-    loadContent(url);
-    console.log('after');
-});
+        loadContent(url);
+    })
 
-function loadContent(url) {
+    $("#requests").click(function(e) {
+        e.preventDefault();
+        let url = e.target.href;
+
+        loadContent(url);
+    })   
+    
+    $("#addItem").click(function(e) {
+        e.preventDefault();
+        let url = e.target.href;
+
+        loadContent(url);
+    })   
+    
+    function loadContent(url) {
     $('#content').load(url);
-}
-
-$('#tabs').click(function() {
-    console.log(click);
-})
-
-console.log("bitches");
+    }
+});

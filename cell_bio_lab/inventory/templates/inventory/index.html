@@ -4,26 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'inventory/js/inventory.js' %}"></script>
     <title>Inventory</title>
 </head>
 <body>
 <div id="wrapper">
 <div id="header">
     <div id="tabs">
-        <a href="{% url 'inventory' %}" id="Inventory">Inventory</a>
-        <a href="{% url 'requests' %}" id="requestView">Requests</a>
+        <a href="{% url 'inventory' %}" id="inventory">Inventory</a>
+        <a href="{% url 'requests' %}" id="requests">Request</a>
         <a href="{% url 'item_add' %}" id="addItem">Add Item</a> 
     </div>
 <div id="content">
 {% block content %} 
-<a href="{% url 'inventory' %}"> Inventory </a>
+If content doesn't load before you get bored of waiting, click <a href="{% url 'inventory' %}">here.</a>
 {% endblock %}        
 </div>
 
 </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="{% static 'inventory/js/inventory.js' %}"></script>
+
 </body>
 </html>
