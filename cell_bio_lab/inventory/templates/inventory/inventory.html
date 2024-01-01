@@ -1,6 +1,10 @@
-<h1>Inventory</h1>
+{% extends 'inventory/index.html' %}
+
+{% block content %}
+<form method="post" id="addInventoryForm"> {% csrf_token %}
 <table>
     <thead>
+        <th>Inventory</th>
         <tr>
             <th>Item</th>
             <th>Amount</th>
@@ -8,7 +12,14 @@
             <th>Location</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody>   
+        <tr>
+            <td>{{ addInventoryForm.item }}</td>
+            <td>{{ addInventoryForm.amount }}</td>
+            <td>{{ addInventoryForm.unit }}</td>
+            <td>{{ addInventoryForm.location_name }}</td>
+            <td><input type="submit" value="Submit"></td>           
+        </tr>
         {% for item in data %}
             <tr>
                 <td>{{ item.item }}</td>
@@ -17,3 +28,7 @@
                 <td>{{ item.location_name }}</td>
             </tr>
         {% endfor %}
+
+</form>
+
+{% endblock %}
