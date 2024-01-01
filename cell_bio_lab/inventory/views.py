@@ -16,7 +16,7 @@ def requests(request):
     context['requestForm']= form
     return render(request, 'inventory/requests.html', context)
 
-def inventoryAdd(request):
+def itemAdd(request):
     context = {}
     form = inventoryAddForm(request.POST or None, request.FILES or None)
     if form.is_valid():
@@ -27,5 +27,8 @@ def inventoryAdd(request):
 def inventoryView(request):
     data = inventory.objects.all()
     return render(request, 'inventory/inventory.html', {'data': data})
+
+def itemAdd(request):
+    return render(request, 'inventory/add_item.html')
 
   
