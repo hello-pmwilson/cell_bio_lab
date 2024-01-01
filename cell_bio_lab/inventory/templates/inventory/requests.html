@@ -10,4 +10,35 @@
     <button type="submit">Request</button>
 </form>
 
+<form method="post" id="onRequestForm"> {% csrf_token %}
+    <table>
+        <thead>
+            <th>Requests</th>
+            <tr>
+                <th>Item</th>
+                <th>Amount</th>
+                <th></th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>   
+            <tr>
+                <td>{{ requestForm.item }}</td>
+                <td>{{ requestForm.amount }}</td>
+                <td>{{ requestForm.unit }}</td>
+                <td>{{ requestForm.status }}</td>
+                <td><input type="submit" value="Submit"></td>           
+            </tr>
+            {% for item in data %}
+                <tr>
+                    <td>{{ item.item }}</td>
+                    <td>{{ item.amount }}</td>
+                    <td>{{ item.unit }}</td>
+                    <td>{{ item.status }}</td>
+                </tr>
+            {% endfor %}
+    
+    </form>
+    
+
 {% endblock %}
