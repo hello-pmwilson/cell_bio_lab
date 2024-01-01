@@ -5,7 +5,8 @@ from .models import inventory
 
 # Create your views here.
 def index(request):
-    return render(request, 'inventory/index.html')
+    defaultURL = 'inventory' #set default view to be loaded in content
+    return render(request, 'inventory/index.html', {'defaultURL': defaultURL})
 
 def requests(request):
     context = {}

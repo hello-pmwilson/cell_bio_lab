@@ -16,13 +16,14 @@
         <a href="{% url 'requests' %}" id="requests">Request</a>
         <a href="{% url 'item_add' %}" id="addItem">Add Item</a> 
     </div>
+</div>
+
 <div id="content">
 {% block content %} 
-If content doesn't load before you get bored of waiting, click <a href="{% url 'inventory' %}">here.</a>
+If content doesn't load before you get bored of waiting, click <a href="{% url defaultURL %}" id="defaultURL">here.</a>
 {% endblock %}        
 </div>
 
-</div>
 </div>
 
 
