@@ -1,6 +1,7 @@
 from django import forms
 from .models import on_request
 from .models import inventory
+from .models import item
 
 class onRequestForm(forms.ModelForm):
     class Meta:
@@ -10,4 +11,9 @@ class onRequestForm(forms.ModelForm):
 class inventoryAddForm(forms.ModelForm):
     class Meta:
         model = inventory
+        fields = "__all__"
+
+class itemAddForm(forms.ModelForm):
+    class Meta:
+        model = item
         fields = "__all__"
