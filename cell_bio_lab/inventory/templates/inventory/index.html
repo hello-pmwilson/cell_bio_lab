@@ -10,13 +10,14 @@
 <div id="wrapper">
 <div id="header">
     <div id="tabs">
-        <a id="Inventory">Inventory</a>
+        <a href="{% url 'inventory' %}" id="Inventory">Inventory</a>
         <a href="{% url 'requests' %}" id="requestView">Requests</a>
-        <a id="addItem">Add Item</a>
+        <a id="addItem">Add Item</a> 
+        <!-- href="% url 'add_item' %" -->
     </div>
 <div id="content">
 {% block content %} 
-<h1> default content </h1>
+<a href="{% url 'inventory' %}"> Inventory </a>
 {% endblock %}        
 </div>
 
