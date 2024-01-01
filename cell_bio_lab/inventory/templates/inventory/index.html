@@ -12,8 +12,7 @@
     <div id="tabs">
         <a href="{% url 'inventory' %}" id="Inventory">Inventory</a>
         <a href="{% url 'requests' %}" id="requestView">Requests</a>
-        <a id="addItem">Add Item</a> 
-        <!-- href="% url 'add_item' %" -->
+        <a href="{% url 'item_add' %}" id="addItem">Add Item</a> 
     </div>
 <div id="content">
 {% block content %} 
