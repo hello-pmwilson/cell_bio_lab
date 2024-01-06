@@ -28,12 +28,19 @@ def itemAdd(request):
 
 def inventoryView(request):
     context = {}
-    context['data'] = inventory.objects.all()
     addInventoryForm = inventoryAddForm(request.POST or None)
     context['addInventoryForm']= addInventoryForm  
+    #default ordering
+    ordering = '-inventory'
+    if 'order_by' in request.GET:
+        ordering = request.GET['order_by']
+    q = inventory.objects.all().order_by(ordering)
+    
     if request.method == "POST":
         if addInventoryForm.is_valid():
             addInventoryForm.save()
+
+    context['data'] = q
     return render(request, 'inventory/inventory.html', context)
 
   
