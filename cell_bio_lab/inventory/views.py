@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .forms import onRequestForm, inventoryAddForm
-from .models import inventory, on_request
+from .forms import onRequestForm, inventoryAddForm, itemAddForm
+from .models import inventory, on_request, item
 
 # Create your views here.
 def index(request):
@@ -18,11 +18,13 @@ def requests(request):
 
 def itemAdd(request):
     context = {}
-    form = inventoryAddForm(request.POST or None, request.FILES or None)
-    if form.is_valid():
-        form.save()
-    context['addInventoryForm']= form
-    return render(request, 'inventory/add_inventory.html', context)
+    context['data'] = item.objects.all()
+    addItemForm = itemAddForm(request.POST or None)
+    context['addItemForm']= addItemForm  
+    if request.method == "POST":
+        if addItemForm.is_valid():
+            addItemForm.save()
+    return render(request, 'inventory/add_item.html', context)
 
 def inventoryView(request):
     context = {}
@@ -31,11 +33,7 @@ def inventoryView(request):
     context['addInventoryForm']= addInventoryForm  
     if request.method == "POST":
         if addInventoryForm.is_valid():
-            print("bvalis")
             addInventoryForm.save()
     return render(request, 'inventory/inventory.html', context)
-
-def itemAdd(request):
-    return render(request, 'inventory/add_item.html')
 
   

@@ -2,4 +2,32 @@
 
 {% block content %}
 <h1>Hello, item add</h1>
+
+<form method="post" id="addItemForm"> {% csrf_token %}
+    <table>
+        <thead>
+            <th>Items</th>
+            <tr>
+                <th>Item</th>
+                <th>Item Name</th>
+                <th>Item Description</th>
+            </tr>
+        </thead>
+        <tbody>   
+            <tr>
+                <td>{{ addItemForm.item }}</td>
+                <td>{{ addItemForm.item_name }}</td>
+                <td>{{ addItemForm.item_description }}</td>
+                <td><input type="submit" value="Submit"></td>           
+            </tr>
+            {% for item in data %}
+                <tr>
+                    <td>{{ item.item }}</td>
+                    <td>{{ item.item_name }}</td>
+                    <td>{{ item.item_description }}</td>
+                </tr>
+            {% endfor %}
+    
+    </form>
+
 {% endblock %}

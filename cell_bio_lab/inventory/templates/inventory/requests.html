@@ -2,14 +2,6 @@
 
 {% block content %}
 
-<h1> Helloooo </h1>
-
-<form method="post">
-    {% csrf_token %} 
-    {{ requestForm }}
-    <button type="submit">Request</button>
-</form>
-
 <form method="post" id="onRequestForm"> {% csrf_token %}
     <table>
         <thead>
