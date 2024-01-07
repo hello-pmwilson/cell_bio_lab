@@ -1,7 +1,4 @@
-{% extends 'inventory/index.html' %}
-
-{% block content %}
-<form method="post" id="addInventoryForm"> {% csrf_token %}
+<form method="post" id="form"> {% csrf_token %}
 <table>
     <thead>
         <th>Inventory</th>
@@ -14,10 +11,10 @@
     </thead>
     <tbody>   
         <tr>
-            <td>{{ addInventoryForm.item }}</td>
-            <td>{{ addInventoryForm.amount }}</td>
-            <td>{{ addInventoryForm.unit }}</td>
-            <td>{{ addInventoryForm.location_name }}</td>
+            <td>{{ form.item }}</td>
+            <td>{{ form.amount }}</td>
+            <td>{{ form.unit }}</td>
+            <td>{{ form.location_name }}</td>
             <td><input type="submit" value="Submit"></td>           
         </tr>
         {% for item in data %}
@@ -30,5 +27,3 @@
         {% endfor %}
 
 </form>
-
-{% endblock %}

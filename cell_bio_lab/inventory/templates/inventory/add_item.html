@@ -1,8 +1,3 @@
-{% extends 'inventory/index.html' %}
-
-{% block content %}
-<h1>Hello, item add</h1>
-
 <form method="post" id="addItemForm"> {% csrf_token %}
     <table>
         <thead>
@@ -15,9 +10,9 @@
         </thead>
         <tbody>   
             <tr>
-                <td>{{ addItemForm.item }}</td>
-                <td>{{ addItemForm.item_name }}</td>
-                <td>{{ addItemForm.item_description }}</td>
+                <td>{{ form.item }}</td>
+                <td>{{ form.item_name }}</td>
+                <td>{{ form.item_description }}</td>
                 <td><input type="submit" value="Submit"></td>           
             </tr>
             {% for item in data %}
@@ -29,5 +24,3 @@
             {% endfor %}
     
     </form>
-
-{% endblock %}

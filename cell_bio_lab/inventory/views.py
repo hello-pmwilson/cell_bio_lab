@@ -4,43 +4,43 @@ from .models import inventory, on_request, item
 
 # Create your views here.
 def index(request):
-    defaultURL = 'inventory' #set default view to be loaded in content
-    return render(request, 'inventory/inventory.html', {'defaultURL': defaultURL})
+    #check if specific template is called to load, and if not set default
+    if 'selected' in request.GET:
+        selected = request.GET['selected']
+    else:
+        selected = 'inventory' #set the default
 
-def requests(request):
-    context = {}
-    form = onRequestForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-    context['requestForm']= form
-    context['data'] = on_request.objects.all()
-    return render(request, 'inventory/requests.html', context)
+    #based on selected template, load data to fill in html
+    if selected == 'inventory':
+        form = inventoryAddForm(request.POST or None)
+        ordering = 'inventory'
+        q = inventory.objects.all().order_by(ordering)
+        defaultURL = 'inventory/inventory.html'
+    elif selected == 'requests':
+        form = onRequestForm(request.POST or None)
+        ordering = 'item'
+        q = on_request.objects.all().order_by(ordering)
+        defaultURL = 'inventory/requests.html'
+    elif selected == 'add_item':
+        form = itemAddForm(request.POST or None)
+        ordering = 'item'
+        q = item.objects.all().order_by(ordering)
+        defaultURL = 'inventory/add_item.html'        
 
-def itemAdd(request):
-    context = {}
-    context['data'] = item.objects.all()
-    addItemForm = itemAddForm(request.POST or None)
-    context['addItemForm']= addItemForm  
-    if request.method == "POST":
-        if addItemForm.is_valid():
-            addItemForm.save()
-    return render(request, 'inventory/add_item.html', context)
-
-def inventoryView(request):
-    context = {}
-    addInventoryForm = inventoryAddForm(request.POST or None)
-    context['addInventoryForm']= addInventoryForm  
-    #default ordering
-    ordering = '-inventory'
+    #check if order_by is set and update the query accordingly
     if 'order_by' in request.GET:
         ordering = request.GET['order_by']
-    q = inventory.objects.all().order_by(ordering)
-    
+        q = inventory.objects.all().order_by(ordering)
+
+    #if form submitted, check validity and save
     if request.method == "POST":
-        if addInventoryForm.is_valid():
-            addInventoryForm.save()
+        if form.is_valid():
+            form.save()
 
-    context['data'] = q
-    return render(request, 'inventory/inventory.html', context)
-
-  
+    #save finalized values and render page
+    context = {
+        'defaultURL': defaultURL,
+        'form': form,
+        'data': q
+    }
+    return render(request, 'inventory/index.html', context)

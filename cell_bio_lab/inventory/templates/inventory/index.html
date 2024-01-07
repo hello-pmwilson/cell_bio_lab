@@ -12,16 +12,14 @@
 <div id="wrapper">
 <div id="header">
     <div id="tabs">
-        <a href="{% url 'inventory' %}" id="inventory">Inventory</a>
-        <a href="{% url 'requests' %}" id="requests">Request</a>
-        <a href="{% url 'item_add' %}" id="addItem">Add Item</a> 
+        <a href="{% url 'index' %}?selected=inventory" id="inventory">Inventory</a>
+        <a href="{% url 'index' %}?selected=requests" id="requests">Request</a>
+        <a href="{% url 'index' %}?selected=add_item" id="addItem">Add Item</a> 
     </div>
 </div>
 
-<div id="content">
-{% block content %} 
-If content doesn't load before you get bored of waiting, click <a href="{% url defaultURL %}" id="defaultURL">here.</a>
-{% endblock %}        
+<div id="content"> 
+{% include defaultURL %}
 </div>
 
 </div>
